@@ -1,4 +1,5 @@
 
+*.terraform
 .terraform/modules/ec2_public/
 .terraform.lock.hcl
 .terraform/modules/modules.json
