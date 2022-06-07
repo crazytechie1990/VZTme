@@ -186,6 +186,7 @@ resource "aws_iam_role_policy_attachment" "eks-AmazonEKSVPCResourceController" {
   role       = aws_iam_role.eks_master_role.name
 }
 
+# optional
 /*
 # Optionally, enable Security Groups for Pods
 # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
