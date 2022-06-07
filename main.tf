@@ -145,12 +145,12 @@ resource "null_resource" "copy_ec2_keys" {
 ## File Provisioner: Copies the terraform-key.pem file to /tmp/terraform-key.pem
   provisioner "file" {
     source      = "private-key/VZTme.pem"
-    destination = "/tmp/eks-terraform-key.pem"
+    destination = "/tmp/VZTme.pem"
   }
 ## Remote Exec Provisioner: Using remote-exec provisioner fix the private key permissions on Bastion Host
   provisioner "remote-exec" {
     inline = [
-      "sudo chmod 400 /tmp/eks-terraform-key.pem"
+      "sudo chmod 400 /tmp/VZTme.pem"
     ]
   }
 
@@ -269,7 +269,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
   
   
   remote_access {
-    ec2_ssh_key = "eks-terraform-key"
+    ec2_ssh_key = "VZTme"
   }
 
   scaling_config {
