@@ -2,6 +2,7 @@ Screen:
 
     MDBoxLayout:
         orientation: "vertical"
+        size: 200, 100
 
     MDCard:
         size_hint: None, None
@@ -21,6 +22,8 @@ Screen:
         size_hint_y: None
         height: self.texture_size[1]
         padding_y: 15
+        theme_text_color: "Custom"
+        text_color: 0,128,0
 
     MDTextFieldRound:
         id: user
@@ -29,15 +32,30 @@ Screen:
         size_hint_x: None
         width: 200
         font_size: 18
-        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
 
     MDTextFieldRound:
         id: user
         hint_text: "password"
-        icon_right: "account"
+        icon_right: "eye-off"
         size_hint_x: None
         width: 200
         font_size: 18
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        password: True
+
+    MDRoundFlatButton:
+        text: "LOG IN"
+        font_size: 12
         pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        on_press: app.logger()
 
+    MDRoundFlatButton:
+        text: "CLEAR"
+        font_size: 12
+        pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        on_press: app.clear()
 
+    Widget:
+        size_hint_y: None
+        height: 10
